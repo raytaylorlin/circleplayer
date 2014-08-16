@@ -196,8 +196,10 @@ CirclePlayer.prototype = {
 		}
 	},
 	_progress: function(percent) {
-		var degs = percent * 3.6+"deg";
+		var degs;
 
+		percent = percent > 100 ? 100 : percent;
+		degs = percent * 3.6 + "deg";
 		if (this.cssTransforms) {
 			if (percent <= 50) {
 				this.jq.bufferHolder.removeClass(this.cssClass.gt50);
